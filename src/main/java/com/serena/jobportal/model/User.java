@@ -13,6 +13,7 @@ public class User {
     private String firstName;
     private String lastName;
     private Date dob;
+    private String email;
     private String passwordHash;
     private String role;
     private Date creationDate;
@@ -22,11 +23,11 @@ public class User {
         this.creationDate = new Date();
     }
 
-    public User(String firstName, String lastName, Date dob, String passwordHash,
-                String role) {
+    public User(String firstName, String lastName, String email, Date dob, String passwordHash, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
+        this.email=email;
         this.passwordHash = passwordHash;
         this.role = role;
         this.creationDate = new Date(); // Set creation date to now
