@@ -3,16 +3,26 @@ package com.serena.jobportal.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.ArrayList;
+import jakarta.validation.constraints.*;
+
+import com.serena.jobportal.validation.ValidPhoneNumber;
 
 @Document(collection = "recruiters")
 @Data
 public class Recruiter {
     @Id
     private String id;
+
+    @NotBlank(message = "User ID is required")
     private String userID;
+
+    @NotBlank(message = "Company ID is required")
     private String companyID;
+
+    @Size(max = 500, message = "Bio cannot exceed 500 characters")
     private String bio;
+
+    @ValidPhoneNumber(message = "Contact number must be a valid phone number")
     private String contactNumber;
 
     public Recruiter(String userID, String companyID, String bio, String contactNumber) {
