@@ -1,4 +1,3 @@
-// Role.java
 package com.serena.jobportal.model;
 
 import org.springframework.data.annotation.Id;

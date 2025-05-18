@@ -1,4 +1,3 @@
-// CandidateRequest.java
 package com.serena.jobportal.dto.request;
 
 import com.serena.jobportal.model.Education;

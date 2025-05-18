@@ -1,4 +1,3 @@
-// JwtAuthenticationFilterTest.java
 package com.serena.jobportal.security;
 
 import jakarta.servlet.FilterChain;

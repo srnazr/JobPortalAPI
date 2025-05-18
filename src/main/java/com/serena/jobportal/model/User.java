@@ -1,4 +1,3 @@
-// User.java
 package com.serena.jobportal.model;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,3 @@
-// SortRequest.java
 package com.serena.jobportal.dto.request;
 
 import lombok.AllArgsConstructor;

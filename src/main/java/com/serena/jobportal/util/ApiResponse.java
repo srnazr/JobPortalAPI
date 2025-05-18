@@ -1,4 +1,3 @@
-// ApiResponse.java
 package com.serena.jobportal.util;
 
 import lombok.AllArgsConstructor;

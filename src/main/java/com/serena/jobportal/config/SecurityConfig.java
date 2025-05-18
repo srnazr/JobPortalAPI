@@ -1,4 +1,3 @@
-// SecurityConfig.java
 package com.serena.jobportal.config;
 
 import com.serena.jobportal.security.JwtAuthenticationFilter;

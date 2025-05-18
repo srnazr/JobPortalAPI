@@ -1,4 +1,3 @@
-// RecruiterResponse.java
 package com.serena.jobportal.dto.response;
 
 import lombok.AllArgsConstructor;

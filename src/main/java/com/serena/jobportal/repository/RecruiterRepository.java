@@ -1,4 +1,3 @@
-// RecruiterRepository.java
 package com.serena.jobportal.repository;
 
 import com.serena.jobportal.model.Recruiter;

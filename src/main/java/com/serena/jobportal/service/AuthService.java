@@ -1,4 +1,3 @@
-// AuthService.java
 package com.serena.jobportal.service;
 
 import com.serena.jobportal.model.Role;

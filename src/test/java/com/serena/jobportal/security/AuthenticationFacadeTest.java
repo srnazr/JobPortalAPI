@@ -1,4 +1,3 @@
-// AuthenticationFacadeTest.java
 package com.serena.jobportal.security;
 
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,3 @@
-// UserDetailsServiceImplTest.java
 package com.serena.jobportal.security;
 
 import com.serena.jobportal.model.Role;

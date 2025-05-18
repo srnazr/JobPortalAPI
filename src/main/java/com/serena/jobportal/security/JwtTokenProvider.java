@@ -1,4 +1,3 @@
-// JwtTokenProvider.java
 package com.serena.jobportal.security;
 
 import com.serena.jobportal.config.JwtConfig;

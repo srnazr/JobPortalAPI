@@ -1,4 +1,3 @@
-// JwtConfig.java
 package com.serena.jobportal.config;
 
 import lombok.Data;

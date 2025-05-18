@@ -1,4 +1,3 @@
-// Experience.java
 package com.serena.jobportal.model;
 
 import java.time.LocalDate;

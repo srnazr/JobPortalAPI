@@ -1,4 +1,3 @@
-// RegisterRequest.java
 package com.serena.jobportal.dto.request;
 
 import jakarta.validation.constraints.Email;

@@ -1,4 +1,3 @@
-// AuthenticationFacade.java
 package com.serena.jobportal.security;
 
 import lombok.RequiredArgsConstructor;

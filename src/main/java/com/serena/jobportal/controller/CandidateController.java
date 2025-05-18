@@ -1,4 +1,3 @@
-// CandidateController.java
 package com.serena.jobportal.controller;
 
 import com.serena.jobportal.dto.request.CandidateRequest;

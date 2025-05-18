@@ -1,4 +1,3 @@
-// Candidate.java
 package com.serena.jobportal.model;
 
 import java.util.ArrayList;

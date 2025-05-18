@@ -1,4 +1,3 @@
-// CandidateResponse.java
 package com.serena.jobportal.dto.response;
 
 import com.serena.jobportal.model.Education;
