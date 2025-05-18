@@ -1,15 +1,18 @@
+// RecruiterRepository.java
 package com.serena.jobportal.repository;
 
 import com.serena.jobportal.model.Recruiter;
+import com.serena.jobportal.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
+@Repository
 public interface RecruiterRepository extends MongoRepository<Recruiter, String> {
-    // Find by ID
-    Recruiter findByUserID(String userID);
-    List<Recruiter> findByCompanyID(String companyID);
-    // Existence checks
-    boolean existsByUserID(String userID);
-    // Delete operations
-    void deleteByUserID(String userID);
+    Optional<Recruiter> findByUser(User user);
+    Optional<Recruiter> findByUserId(String userId);
+    List<Recruiter> findByCompanyName(String companyName);
+    boolean existsByUserId(String userId);
 }

@@ -1,16 +1,15 @@
+// UserRepository.java
 package com.serena.jobportal.repository;
 
 import com.serena.jobportal.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
+@Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    //Find By Name
-    User findByFirstNameAndLastName(String firstName, String lastName);
-    //Find By Role
-    List<User> findByRole(String role);
-    long countByRole(String role);
-    //Existence Check
-    boolean existsByFirstNameAndLastName(String firstName, String lastName);
     boolean existsByEmail(String email);
+    Optional<User> findByEmail(String email);
+    Optional<User> findByEmailAndActive(String email, boolean active);
 }

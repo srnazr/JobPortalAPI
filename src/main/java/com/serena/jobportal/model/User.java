@@ -1,17 +1,29 @@
+// User.java
 package com.serena.jobportal.model;
 
-import lombok.Data;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.validation.constraints.*;
-import java.util.Date;
 
-import com.serena.jobportal.validation.ValidUserRole;
-import com.serena.jobportal.validation.StrongPassword;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Document(collection = "users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "users")
 public class User {
+
     @Id
     private String id;
 
@@ -23,41 +35,22 @@ public class User {
     @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
     private String lastName;
 
-    @NotNull(message = "Date of birth is required")
-    @Past(message = "Date of birth must be in the past")
-    private Date dob;
-
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
+    @Indexed(unique = true)
     private String email;
 
     @NotBlank(message = "Password is required")
-    @StrongPassword
-    private String passwordHash;
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+    private String password;
 
-    @NotBlank(message = "Role is required")
-    @ValidUserRole
-    private String role;
+    @Builder.Default
+    private List<Role> roles = new ArrayList<>();
 
-    private Date creationDate;
+    private boolean active;
 
-    //Set the date to current date in the default constructor
-    public User() {
-        this.creationDate = new Date();
-    }
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    public User(String firstName, String lastName, String email, Date dob, String passwordHash, String role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = dob;
-        this.email = email;
-        this.passwordHash = passwordHash;
-        this.role = role;
-        this.creationDate = new Date(); // Set creation date to now
-    }
-
-    @Override
-    public String toString() {
-        return "ID: " + id + ", First name: " + firstName + ", Last name: " + lastName + ", DoB: " + dob + ", Role: " + role + ", Creation date:" + creationDate +"\n";
-    }
+    private LocalDateTime updatedAt;
 }

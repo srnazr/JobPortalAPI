@@ -1,39 +1,50 @@
+// Application.java
 package com.serena.jobportal.model;
 
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import jakarta.validation.constraints.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-@Document(collection = "applications")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "applications")
 public class Application {
+
     @Id
     private String id;
 
-    @NotBlank(message = "Candidate ID is required")
-    private String candidateID;
+    @DBRef
+    private Job job;
 
-    @NotBlank(message = "Job ID is required")
-    private String jobID;
+    @DBRef
+    private Candidate candidate;
 
-    @NotNull(message = "Application date is required")
-    @PastOrPresent(message = "Application date cannot be in the future")
-    private Date applicationDate;
+    @Size(max = 2000, message = "Cover letter must be less than 2000 characters")
+    private String coverLetter;
 
-    public Application() {
-        this.applicationDate = new Date();
-    }
+    private String resumeUrl;
 
-    public Application(String candidateID, String jobID, Date applicationDate) {
-        this.candidateID = candidateID;
-        this.jobID = jobID;
-        this.applicationDate = applicationDate != null ? applicationDate : new Date();
-    }
+    private Status status;
 
-    @Override
-    public String toString() {
-        return "ID: " + id + ", Candidate ID: " + candidateID + ", Job ID: " + jobID + ", Date: " + applicationDate + "\n";
+    @Builder.Default
+    private LocalDateTime appliedAt = LocalDateTime.now();
+
+    private LocalDateTime updatedAt;
+
+    @Size(max = 1000, message = "Notes must be less than 1000 characters")
+    private String notes;
+
+    public enum Status {
+        APPLIED, UNDER_REVIEW, SHORTLISTED, INTERVIEW_SCHEDULED, HIRED, REJECTED
     }
 }
