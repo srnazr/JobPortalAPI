@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: job-portal-api
+    env: docker
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DATABASE
+        value: JobPortalDB
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRATION
+        value: 86400000
+      - key: JWT_ISSUER
+        value: JobPortalAPI
+      - key: JAVA_OPTS
+        value: "-XX:+UseContainerSupport -Xmx512m -Xms256m"
