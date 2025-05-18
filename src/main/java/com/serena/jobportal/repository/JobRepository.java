@@ -38,4 +38,6 @@ public interface JobRepository extends MongoRepository<Job, String> {
 
     @Query("{'$text': {'$search': ?0}}")
     Page<Job> searchJobs(String searchTerm, Pageable pageable);
+
+    long countByRecruiterId(String id);
 }
