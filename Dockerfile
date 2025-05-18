@@ -20,6 +20,7 @@ COPY src src
 RUN ./mvnw package -DskipTests
 
 # Runtime stage
+ENV SPRING_PROFILES_ACTIVE=prod
 FROM eclipse-temurin:17-jre
 
 WORKDIR /app
